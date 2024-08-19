@@ -1,0 +1,52 @@
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.imageAndText {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+    margin-bottom: 10px;
+
+}
+
+.imageAndText img {
+    height: 48px;
+    width: 48px;
+
+}
+
+.text {
+    background: #0066CC;
+    text-align: left;
+    border: 1px solid #0066CC;
+    border-radius: 10px;
+}
+
+.text:after {
+
+}
+
+.name {
+    text-align: end;
+    color: #FFFFFF;
+
+
+}
+
+.messageText {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 19.5px;
+    color: #FFFFFF;
+
+}
+
+.time {
+
+}

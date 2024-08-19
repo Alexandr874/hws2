@@ -1,0 +1,43 @@
+.friendMessage {
+    margin: 10px;
+}
+
+.friendImageAndText {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.friendImageAndText img {
+    height: 48px;
+    width: 48px;
+}
+
+.friendText {
+    border: 1px solid #F5F7FB;
+    border-radius: 10px;
+    background: #F5F7FB;
+
+}
+
+.friendText:after {
+
+}
+
+.friendName {
+
+}
+
+.friendMessageText {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 19.5px;
+    text-align: left;
+    color: #000000;
+
+}
+
+.friendTime {
+    display: none;
+}
