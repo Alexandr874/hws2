@@ -5,13 +5,18 @@
 
 .hw {
     width: 1280px;
-    margin: 0 auto;
-    padding: 0 70px 0 70px;
-
-
+    margin: 0 70px 0 70px;
+    margin-top: 69px;
+    min-height: 373px;
 
 }
 
 .hwTitle {
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left;
+    color: #000000;
+    margin: 70px 0 0 70px;
 
 }

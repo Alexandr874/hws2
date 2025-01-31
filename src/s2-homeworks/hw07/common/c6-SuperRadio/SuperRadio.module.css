@@ -1,15 +1,42 @@
 .radio {
+   width: 24px;
+    height: 24px;
+    accent-color: #000000;
+    opacity: 1;
 }
+/*input[type="radio"] {
+    accent-color: #000000;
+    opacity: 1;
+}*/
 
 .radio::before {
+
 }
 
-
 .radio:checked::before {
+
 }
 
 .label {
+    display: flex;
+    align-items: center;
+    width: 110px;
+    gap: 10px;
+    margin-left: 127px;
+    padding-top: 19px;
 }
 
-.options {
+.label:first-of-type {
+    padding-top: 0;
 }
+
+
+.options {
+    font-family: Montserrat;
+    font-size: 16px;
+
+}
+
+
+
+

@@ -4,6 +4,8 @@ import s from './HW8.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
+import {useDispatch, useSelector} from "react-redux";
+import type {AppStoreType} from "../hw10/bll/store";
 
 /*
 * 1 - дописать типы и логику (сортировка по имени, фильтрация по совершеннолетию) homeWorkReducer, проверить тестом
@@ -17,7 +19,7 @@ export type UserType = {
     age: number
 }
 
-const initialPeople: UserType[] = [
+export const initialPeople: UserType[] = [
     // студенты могут поменять имя/возраст/количество объектов, _id должны быть целочисленные
     {_id: 0, name: 'Кот', age: 3},
     {_id: 1, name: 'Александр', age: 66},
@@ -28,28 +30,27 @@ const initialPeople: UserType[] = [
 ]
 
 const HW8 = () => {
-    const [people, setPeople] = useState<UserType[]>(initialPeople)
+
+
+const people = useSelector<AppStoreType, UserType[]>(state => state.home)
+    const dispatch = useDispatch()
+
+    //const [people, setPeople] = useState<UserType[]>(initialPeople)
     const [currentSort, setCurrentSort] = useState('')
 
     const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
 
     const sortUp = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})
-        ) // в алфавитном порядке a.name > b.name
+        dispatch(({type: 'sort', payload: 'up'})) // в алфавитном порядке a.name > b.name
         setCurrentSort('up')
     }
 
     const sortDown = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
-        ) // в обратном порядке a.name < b.name}
+        dispatch({type: 'sort', payload: 'down'}) // в обратном порядке a.name < b.name}
         setCurrentSort('down')
     }
     const check18 = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'check', payload: 18})
-        ) // совершеннолетние
+        dispatch({type: 'check', payload: 18}) // совершеннолетние
         setCurrentSort('18')
     }
 

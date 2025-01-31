@@ -1,8 +1,12 @@
 .container {
+
 }
 
 .wrapper {
+    display: flex;
+    align-items: center;
 }
 
 .number {
+
 }

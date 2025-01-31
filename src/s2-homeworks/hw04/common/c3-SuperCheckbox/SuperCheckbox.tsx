@@ -6,8 +6,7 @@ import React, {
 import s from './SuperCheckbox.module.css'
 
 // тип пропсов обычного инпута
-type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement>
+type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
 type SuperCheckboxPropsType = Omit<DefaultInputPropsType, 'type'> & {
     onChangeChecked?: (checked: boolean) => void
@@ -20,19 +19,17 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
         onChangeChecked,
         className,
         spanClassName,
-        children, // в эту переменную попадёт текст, типизировать не нужно так как он затипизирован в React.FC
+        children, // в эту переменную попадет текст, типизировать не нужно так как он затипизирован в React.FC
         id,
-
         ...restProps // все остальные пропсы попадут в объект restProps
     }
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        // задачка на написание онченджа
-
+        onChange?.(e) // Проверка наличия onChange
+        onChangeChecked?.(e.target.checked) // Проверка наличия onChangeChecked
     }
 
-    const finalInputClassName = s.checkbox
-        + (className ? ' ' + className : '')
+    const finalInputClassName = s.checkbox + (className ? ' ' + className : '')
 
     return (
         <label className={s.label}>
@@ -46,7 +43,7 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
             {children && (
                 <span
                     id={id ? id + '-span' : undefined}
-                    className={s.spanClassName}
+                    className={`${s.span} ${spanClassName ? spanClassName : ''}`}
                 >
                     {children}
                 </span>
