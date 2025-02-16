@@ -1,27 +1,39 @@
 .tech {
     width: 50vw;
+    margin-bottom: 10px;
 }
 
 .developer {
-
+    width: 20vw;
+    margin-right: 200px;
 }
 
 .techHeader {
     width: 50vw;
+    margin-bottom: 10px;
 }
 
 .developerHeader {
-
+    width: 20vw;
+    margin-right: 200px;
 }
 
 .row {
     display: flex;
+    width: 606px;
+    margin-left: 12px;
 }
 
 .rowHeader {
     display: flex;
+    width: 606px;
+    margin-left: 12px;
 }
 
 .loading {
-
+    display: block;
+    position: absolute;
+    left: 300px;
 }
+
+

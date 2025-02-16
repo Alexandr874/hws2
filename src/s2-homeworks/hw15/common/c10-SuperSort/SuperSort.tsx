@@ -1,9 +1,12 @@
 import React from 'react'
+import up from '../img/up.svg'
+import down from '../img/down.svg'
+import upDown from '../img/up_down.svg'
 
 // добавить в проект иконки и импортировать
-const downIcon = '[\\/]'
-const upIcon = '[/\\]'
-const noneIcon = '[--]'
+const downIcon = down
+const upIcon = up
+const noneIcon =  upDown
 
 export type SuperSortPropsType = {
     id?: string
@@ -14,7 +17,13 @@ export type SuperSortPropsType = {
 
 export const pureChange = (sort: string, down: string, up: string) => {
     // пишет студент, sort: (click) => down (click) => up (click) => '' (click) => down ...
-    return up // исправить
+    if (sort === up) {
+        return ''; // Сброс сортировки
+    } else if (sort === down) {
+        return up; // Сортировка по возрастанию
+    } else {
+        return down; // Сортировка по убыванию
+    }
 }
 
 const SuperSort: React.FC<SuperSortPropsType> = (
@@ -29,24 +38,11 @@ const SuperSort: React.FC<SuperSortPropsType> = (
         onChange(pureChange(sort, down, up))
     }
 
-    const icon = sort === down
-        ? downIcon
-        : sort === up
-            ? upIcon
-            : noneIcon
+    const icon = sort === down ? downIcon : sort === up ? upIcon : noneIcon
 
     return (
-        <span
-            id={id + '-sort-' + value}
-            onClick={onChangeCallback}
-        >
-            {/*сделать иконку*/}
-            {/*<img*/}
-            {/*    id={id + '-icon-' + sort}*/}
-            {/*    src={icon}*/}
-            {/*/>*/}
-
-            {icon} {/*а это убрать*/}
+        <span id={id + '-sort-' + value} onClick={onChangeCallback}>
+            <img id={id + '-icon-' + sort} src={icon} width={8} height={10} />
         </span>
     )
 }
